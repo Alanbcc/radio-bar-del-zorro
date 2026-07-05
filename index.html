@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Radio Bar del Zorro 2.0</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0b0b0f;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .radio {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      padding: 40px 25px;
+      background: #17171f;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .estado {
+      color: #ff8c42;
+      margin-bottom: 25px;
+    }
+
+    audio {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="radio">
+    <h1>🦊 Radio Bar del Zorro 2.0</h1>
+
+    <p class="estado">📻 Transmitiendo 24/7</p>
+
+    <audio controls preload="none">
+      <source src="https://sonic-us.arkeo.cl:8055/stream" type="audio/mpeg">
+      Tu navegador no soporta reproducción de audio.
+    </audio>
+  </main>
+
+</body>
+</html>
