@@ -1670,6 +1670,64 @@
   }
 }
 
+
+/* =========================================================
+   PARCHE MÓVIL ULTRALIGERO
+   Prioridad: scroll fluido, sin flashes/pantallas blancas.
+   En móvil se elimina toda lluvia animada y composición cara.
+   ========================================================= */
+@media (max-width: 768px), (pointer: coarse) {
+  .rain-far,
+  .rain-near,
+  .glass-drops,
+  .rain-glass,
+  .window-drops,
+  .water-trails,
+  .rain-trails,
+  .bokeh,
+  .bokeh-layer,
+  .amber-bokeh,
+  .moving-reflections,
+  .reflection-layer,
+  .rain-layer,
+  .rain {
+    display: none !important;
+    animation: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  /* Evita capas gigantes promocionadas a GPU durante el scroll */
+  body,
+  main,
+  .hero,
+  .atmosphere,
+  .bar-atmosphere {
+    will-change: auto !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Conserva ambiente ámbar, pero totalmente estático */
+  .hero::before,
+  .hero::after,
+  .atmosphere::before,
+  .atmosphere::after,
+  .bar-atmosphere::before,
+  .bar-atmosphere::after {
+    animation: none !important;
+    backdrop-filter: none !important;
+    will-change: auto !important;
+  }
+
+  html, body {
+    background-color: #050505 !important;
+  }
+}
+
 </style>
 </head>
 
