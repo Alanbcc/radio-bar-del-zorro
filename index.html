@@ -2208,6 +2208,11 @@
     /* El video reemplaza la fotografía solo en escritorio.
        ::before queda como velo cinematográfico, no como otra imagen. */
     @media (min-width: 1101px) {
+      .hero-video {
+        object-fit: cover;
+        object-position: 38% center;
+      }
+
       .hero::before {
         z-index: -3;
         opacity: 1;
