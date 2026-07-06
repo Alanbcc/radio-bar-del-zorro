@@ -2393,6 +2393,183 @@
 }
 </style>
 
+
+<style id="radio-zorro-orden-desktop-definitivo">
+/* ORDEN FINAL: solo escritorio; móvil/tablet quedan intactos */
+@media (min-width: 1101px) {
+  .hero {
+    position: relative !important;
+    min-height: 720px !important;
+    overflow: hidden !important;
+    background: #050403 !important;
+  }
+
+  .hero-video-suavizado {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 50% 50% !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    z-index: -4 !important;
+    pointer-events: none !important;
+  }
+
+  .hero::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -3 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    background:
+      linear-gradient(90deg,
+        rgba(0,0,0,.50) 0%,
+        rgba(0,0,0,.27) 24%,
+        rgba(0,0,0,.08) 49%,
+        rgba(0,0,0,.14) 70%,
+        rgba(0,0,0,.30) 100%
+      ),
+      linear-gradient(180deg,
+        rgba(0,0,0,.08) 0%,
+        rgba(0,0,0,.02) 48%,
+        rgba(0,0,0,.52) 100%
+      ) !important;
+  }
+
+  .hero::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -2 !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    background:
+      radial-gradient(circle at 16% 48%, rgba(255,92,0,.10), transparent 25%),
+      linear-gradient(90deg, rgba(0,0,0,.10), transparent 34%, transparent 72%, rgba(0,0,0,.12)) !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .hero > .hero-inner.shell {
+    width: min(calc(100% - 48px), 1540px) !important;
+    min-height: 720px !important;
+    margin-inline: auto !important;
+    padding: 46px 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(390px, .86fr) minmax(560px, 1.14fr) !important;
+    gap: clamp(34px, 3.4vw, 64px) !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .hero-story {
+    min-width: 0 !important;
+    min-height: 520px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    align-self: center !important;
+  }
+
+  .hero-story > .fox-stage {
+    display: none !important;
+  }
+
+  .hero-title {
+    max-width: 520px !important;
+    margin: 14px 0 4px !important;
+    font-size: clamp(58px, 5.15vw, 88px) !important;
+    line-height: .91 !important;
+  }
+
+  .hero-tagline {
+    margin: 20px 0 26px !important;
+    font-size: clamp(27px, 2.45vw, 39px) !important;
+    white-space: nowrap !important;
+  }
+
+  .live-strip {
+    max-width: 100% !important;
+  }
+
+  .now-card {
+    width: min(100%, 690px) !important;
+    max-width: 690px !important;
+    justify-self: end !important;
+    padding: 26px !important;
+    border-radius: 19px !important;
+    background:
+      radial-gradient(circle at 95% 0%, rgba(255,83,0,.11), transparent 30%),
+      linear-gradient(145deg, rgba(12,10,9,.84), rgba(3,3,3,.91)) !important;
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+  }
+
+  .now-card .section-label { margin-bottom: 20px !important; }
+
+  .track-layout {
+    grid-template-columns: 170px minmax(0, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .track-title { font-size: clamp(28px, 2.55vw, 42px) !important; }
+  .track-artist { font-size: clamp(22px, 2vw, 33px) !important; }
+
+  .equalizer {
+    height: 68px !important;
+    margin-top: 15px !important;
+  }
+
+  .player-row {
+    margin-top: 22px !important;
+    padding-top: 20px !important;
+    gap: 18px !important;
+  }
+
+  .play-btn {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .hero-rain,
+  .hero-glass-drops,
+  .hero-glass-trails,
+  .hero-rain-bokeh,
+  .hero-amber-reflections,
+  .hero-bar-window,
+  .hero-bar-silhouette {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1350px) {
+  .hero > .hero-inner.shell {
+    width: min(calc(100% - 36px), 1280px) !important;
+    grid-template-columns: minmax(330px, .80fr) minmax(520px, 1.20fr) !important;
+    gap: 28px !important;
+  }
+
+  .hero-title { font-size: clamp(54px, 5.4vw, 76px) !important; }
+  .hero-tagline { font-size: clamp(25px, 2.6vw, 34px) !important; }
+
+  .now-card {
+    max-width: 650px !important;
+    padding: 24px !important;
+  }
+
+  .track-layout {
+    grid-template-columns: 155px minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -2436,7 +2613,7 @@
            autoplay muted loop playsinline preload="auto"
            poster="bar-zorro-fondo.png"
            aria-hidden="true">
-      <source src="bar-zorro-video-suavizado.mp4" type="video/mp4">
+      <source src="bar-zorro-video.mp4" type="video/mp4">
     </video>
     <!-- VIDEO CINEMATOGRÁFICO DE FONDO -->
 <div class="hero-bar-window" aria-hidden="true"></div>
