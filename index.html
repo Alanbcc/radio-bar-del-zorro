@@ -240,6 +240,7 @@
       pointer-events: none;
       z-index: -4;
       background: #050403;
+      transition: opacity 1.1s linear;
     }
 
     /* Velo oscuro por defecto (aplica a la foto en mobile/tablet) */
@@ -1520,9 +1521,16 @@
     <!-- HERO -->
     <section class="hero" id="inicio">
 
-      <video class="hero-video-suavizado"
-             autoplay muted loop playsinline preload="auto"
+      <video class="hero-video-suavizado" id="heroVideoA"
+             autoplay muted playsinline preload="auto"
              poster="bar-zorro-fondo.png"
+             aria-hidden="true">
+        <source src="bar-zorro-video-oled-cinematografico.mp4" type="video/mp4">
+      </video>
+
+      <video class="hero-video-suavizado" id="heroVideoB"
+             muted playsinline preload="auto"
+             style="opacity:0;"
              aria-hidden="true">
         <source src="bar-zorro-video-oled-cinematografico.mp4" type="video/mp4">
       </video>
@@ -2254,6 +2262,60 @@
         tryNextStream();
       }
     });
+
+    /* ==========================================
+       CROSSFADE DEL VIDEO DE FONDO (loop suave)
+       En vez de dejar que el video haga un corte
+       seco al reiniciarse, usamos dos copias del
+       mismo clip y mezclamos su opacidad justo
+       antes de que termine el que está activo.
+    ========================================== */
+
+    function setupHeroVideoCrossfade() {
+      const videoA = document.getElementById("heroVideoA");
+      const videoB = document.getElementById("heroVideoB");
+
+      if (!videoA || !videoB) return;
+
+      const CROSSFADE_SECONDS = 1.1;
+
+      let active = videoA;
+      let idle = videoB;
+      let swapping = false;
+
+      function trySwap() {
+        if (swapping) return;
+        if (!active.duration || Number.isNaN(active.duration)) return;
+
+        if (active.currentTime >= active.duration - CROSSFADE_SECONDS) {
+          swapping = true;
+
+          idle.currentTime = 0;
+
+          const playPromise = idle.play();
+          if (playPromise && playPromise.catch) {
+            playPromise.catch(() => {});
+          }
+
+          idle.style.opacity = "1";
+          active.style.opacity = "0";
+
+          setTimeout(() => {
+            const previousActive = active;
+            active = idle;
+            idle = previousActive;
+
+            idle.pause();
+            swapping = false;
+          }, CROSSFADE_SECONDS * 1000);
+        }
+      }
+
+      videoA.addEventListener("timeupdate", trySwap);
+      videoB.addEventListener("timeupdate", trySwap);
+    }
+
+    setupHeroVideoCrossfade();
 
     /* ==========================================
        FOOTER WAVE
