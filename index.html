@@ -13,9 +13,27 @@
 
   <meta name="theme-color" content="#070707">
 
+  <!-- Open Graph / Redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://radiobardelzorro.github.io/">
+  <meta property="og:title" content="Radio Bar del Zorro">
+  <meta property="og:description" content="Música para los que todavía escuchan con el alma. Grunge, trip hop, alternativo. Sin comerciales. 24/7.">
+  <meta property="og:image" content="https://radiobardelzorro.github.io/bar-zorro-fondo.png">
+  <meta property="og:image:width" content="1173">
+  <meta property="og:image:height" content="1341">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Radio Bar del Zorro">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Radio Bar del Zorro">
+  <meta name="twitter:description" content="Donde la noche tiene sonido. Radio online 24/7.">
+  <meta name="twitter:image" content="https://radiobardelzorro.github.io/bar-zorro-fondo.png">
+
   <link rel="icon" type="image/svg+xml" href="favicon-zorro.svg">
-  <link rel="alternate icon" type="image/png" href="zorro-nocturno.png">
-  <link rel="apple-touch-icon" href="zorro-nocturno.png">
+  <link rel="alternate icon" type="image/png" href="zorro-nocturno.webp">
+  <link rel="apple-touch-icon" href="zorro-nocturno.webp">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,7 +43,7 @@
     <div class="shell header-inner">
 
       <a class="brand" href="#inicio" aria-label="Radio Bar del Zorro">
-        <div class="brand-mark"><img src="zorro-nocturno.png" alt="" aria-hidden="true"></div>
+        <div class="brand-mark"><img src="zorro-nocturno.webp" alt="" aria-hidden="true"></div>
 
         <div class="brand-copy">
           <div class="brand-kicker">RADIO</div>
@@ -44,6 +62,10 @@
         <span></span>
         <span></span>
         <span></span>
+      </button>
+
+      <button class="brightness-toggle" id="brightnessToggle" type="button" aria-label="Aumentar brillo de lectura" title="Modo lectura">
+        ☀
       </button>
 
       <a
@@ -65,7 +87,7 @@
 
       <video class="hero-video-suavizado" id="heroVideoA"
              autoplay muted loop playsinline preload="auto"
-             poster="bar-zorro-fondo.png"
+             poster="bar-zorro-fondo.webp"
              aria-hidden="true">
         <source src="bar-zorro-video-loop-seamless.mp4" type="video/mp4">
       </video>
@@ -76,7 +98,7 @@
           <div class="hero-glow"></div>
 
           <div class="fox-stage" aria-hidden="true">
-            <img class="fox-neon" src="zorro-nocturno.png" alt="Zorro nocturno de Radio Bar del Zorro">
+            <img class="fox-neon" src="zorro-nocturno.webp" alt="Zorro nocturno de Radio Bar del Zorro">
           </div>
 
           <h1 class="hero-title">
@@ -146,7 +168,7 @@
               </div>
 
               <div class="vinyl-fox" aria-hidden="true">
-                <img src="zorro-nocturno.png" alt="" class="vinyl-fox-img">
+                <img src="zorro-nocturno.webp" alt="" class="vinyl-fox-img">
               </div>
 
               <div class="vinyl-meta">
@@ -410,7 +432,7 @@
     <div class="shell footer-inner">
 
       <div class="footer-center">
-        <div class="footer-fox"><img src="zorro-nocturno.png" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="footer-fox"><img src="zorro-nocturno.webp" alt="" aria-hidden="true" loading="lazy"></div>
 
         <div class="footer-phrase">
           LA NOCHE SIGUE <span>SONANDO</span>
@@ -433,5 +455,10 @@
     crossorigin="anonymous"
   ></audio>
   <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    }
+  </script>
 </body>
 </html>
