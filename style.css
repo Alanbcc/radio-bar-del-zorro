@@ -73,7 +73,7 @@
     .header-inner {
       min-height: 84px;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr auto auto auto;
       align-items: center;
       gap: 24px;
     }
@@ -1414,7 +1414,7 @@
 
     @media (max-width: 1100px) {
       .header-inner {
-        grid-template-columns: 1fr auto auto;
+        grid-template-columns: 1fr auto auto auto auto;
       }
 
       .hero-inner {
@@ -1616,7 +1616,7 @@
       }
 
       .header-inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto auto;
       }
 
       .hero-title {
